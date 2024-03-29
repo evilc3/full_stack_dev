@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<head>
+    <title></title>
+</head>
+<body>
+    <!-- item = {'username':username, 'email': email, 'verification_code':verification_code, 'password_hash': pw_hash, 'password_salt': pw_salt} -->
+    <pre>
+        Username: {{ username }}
+        Email: {{ email }}
+        <form method="post">
+            Current Password: <input type="password" name="current_password" required/>
+            New Password: <input type="password" name="password" required/>
+            Confirm New Password: <input type="password" name="confirm_password" required/><br>
+            <input type="submit" name="Change Password"/>
+        </form>
+        User Blogs: <a href="{{ url_for('user_library') }}">my blogs</a>
+        <a href="{{ url_for('logout') }}">log out</a>
+    </pre>
+</body>

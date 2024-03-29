@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown Blog Editor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Blog Editor</h1>
+        <form action="{{ url_for('create_blog') }}" method="post" id="myForm">
+            <input type="text" name="title" id="title"/>
+            <textarea name="markdownInput" id="markdownInput" placeholder="Write your blog in Markdown format"></textarea><br>
+            <button type="submit">Preview</button>
+        </form>
+        <div id="previewArea" class="markdown-body">
+            {% if preview %}
+                {{ preview | safe }}
+            {% endif %}
+        </div>
+    </div>
+
+    <script>
+        console.log("now executing Javascript code....")
+        // Save the state of the textarea before form submission
+        document.getElementById('myForm').addEventListener('submit', function(event) {
+            var textareaValue = document.getElementById('markdownInput').value;
+            localStorage.setItem('textareaValue', textareaValue);
+        });
+
+        // Restore the textarea state after the form submission
+        window.onload = function() {
+            var savedTextareaValue = localStorage.getItem('textareaValue');
+            if (savedTextareaValue) {
+                document.getElementById('markdownInput').value = savedTextareaValue;
+            }
+        };
+    </script>
+</body>
+</html>

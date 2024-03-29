@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login Page</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body>
+        <div class="container mt-5">
+            <!-- Display flashed messages using Bootstrap alerts -->
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </div>
+
+        <h1 class = "text-center text-6xl font-bold tracking-wide uppercase text-gray-700">Login Page</h1>
+
+        {% if error %}
+            <h1>Unable to login, try again.</h1>
+        {% endif %}
+
+        <form method = "post" class="flex flex-wrap max-w-lg border-pink-600 mx-auto mt-20">
+            <label class="w-full uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Email:</label>
+            <input type="text" name="username" class="w-full appearance-none bg-gray-200 text-gray-700 border border-gray-500 rounded py-3 px-3 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-2 focus:border-green-500 focus:ring-1 focus:righ-green-400" placeholder="example@gmail.com" required/>
+            <label class="w-full uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Password:</label>
+            <input type="password" name="password" class="w-full appearance-none bg-gray-200 text-gray-700 border border-gray-500 rounded py-3 px-3 leading-tight focus:outline-none focus:bg-white focus:border-2 focus:border-green-500 focus:ring-1 focus:righ-green-400" placeholder="**********" required/>
+            <input type="submit" name="submit" class="w-1/4 bg-pink-500 p-2 mt-5 rounded"/>
+        </form>
+    </body>
+</html>

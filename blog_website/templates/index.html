@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"> -->
+</head>
+<body class = "bg-gradient-to-r from-slate-300 to-pink-200">
+
+    <h1 class="text-center capitalize align-top text-5xl font-sans font-bold mt-36 text-amber-400">Blogger Platform</h1>
+    <div class="flex items-center space-x-10 justify-center mx-auto mt-10">
+        <a href="{{ url_for('signup') }}"><button class="bg-gradient-to-r from-pink-500 hover:to-orange-500 text-white px-6 py-3 rounded-md">Sign Up</button></a>
+        <a href="{{ url_for('login') }}"><button class="bg-gradient-to-r  from-pink-500 hover:to-orange-500 text-white px-6 py-3 rounded-md">Login</button></a>
+    </div>
+</body>
+</html>

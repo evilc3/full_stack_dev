@@ -1,0 +1,14 @@
+.button-container{
+    background-color: aqua;
+}
+
+#markdownInput {
+    width: 100%; /* Use the entire width of the screen */
+    height: 75vh; /* Take 75% of the viewport height */
+    resize: vertical; /* Allow vertical resizing */
+    padding: 10px; /* Add some padding for better readability */
+    font-size: 16px; /* Set font size */
+    border: 1px solid #ccc; /* Add a border */
+    border-radius: 5px; /* Add some border radius for a softer look */
+    box-sizing: border-box; /* Include padding and border in the textarea's total width and height */
+}

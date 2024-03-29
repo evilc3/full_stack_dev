@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Chat Template</title>
+    </head>
+    <body>
+        <div id="show_chat">
+            {% for message in messages %}
+
+                {% if message.type == "author" %}
+                    <h3 style="color: limegreen;">{{ message.content }}</h3>
+                {% else %}
+                    <h3 style="color: lightblue;">{{ message.content }}</h3>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <hr/>
+        <div id="new_chat">
+            <form method="post">
+                <input type="text" name="message">
+                <input type="submit" name="submit"/>
+            </form>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Library</title>
+</head>
+<body>
+
+    {% for blog in blogs %}
+        <a href={{ url_for('delete_blog', blog_id=blog.blog_id) }}> {{blog.title}} </a><br>
+    {% endfor %}
+
+</body>
+</html>

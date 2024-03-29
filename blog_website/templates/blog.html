@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<head>
+    <title>Blogs</title>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css"> -->
+</head>
+<body>
+<h1>Author Details</h1>
+<h2>{{ author_name }}</h2><br>
+<h5>{{ email }}</h5><br><br><hr>
+<h1>{{ blog_title }}</h1><br><hr>
+{{ blog_content | safe }}
+
+<div>
+    <a href={{ url_for('chat', blog_id=blog_id) }}>Chat</a>
+</div>
+</body>

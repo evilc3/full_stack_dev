@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  flask_app:
+    build: .
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mongo
+    deploy:
+      resources:
+        limits:
+          cpus: '6'   # Set the maximum number of CPUs
+          memory: '4G'   # Set the maximum memory limit
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/
+
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./mongo_db:/data/db
